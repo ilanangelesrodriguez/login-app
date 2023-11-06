@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "typescript": "^5.2.2"
+  },
+  "name": "login_seguro",
+  "version": "1.0.0",
+  "description": "Proyecto de login haciendo uso de typescript",
+  "main": "app/main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilanangelesrodriguez/login-app.git"
+  },
+  "author": "Ilan Nestor Angeles Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilanangelesrodriguez/login-app/issues"
+  },
+  "homepage": "https://github.com/ilanangelesrodriguez/login-app#readme"
+}
