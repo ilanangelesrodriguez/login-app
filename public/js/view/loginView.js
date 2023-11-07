@@ -1,27 +1,37 @@
-export default class LoginView {
-    usernameInput;
-    passwordInput;
-    submitButton;
+export class LoginView {
+    formElement;
+    usuarioInput;
+    contrasenaInput;
     constructor() {
-        this.usernameInput = document.getElementById('username');
-        this.passwordInput = document.getElementById('password');
-        this.submitButton = document.getElementById('submit');
+        this.formElement = document.getElementById("login-form");
+        this.usuarioInput = document.getElementById("usuario");
+        this.contrasenaInput = document.getElementById("contrasena");
     }
-    render() {
-        // Puedes personalizar la estructura HTML según tus necesidades
-        const loginForm = document.createElement('form');
-        loginForm.innerHTML = `
-            <h2>Login</h2>
-            <label for="username">Username</label>
-            <input type="text" id="username" />
-            <label for="password">Password</label>
-            <input type="password" id="password" />
-            <button id="submit" type="submit">Login</button>
-        `;
-        // Agregar el formulario al elemento contenedor en tu página HTML
-        const container = document.getElementById('login-container');
-        if (container) {
-            container.appendChild(loginForm);
+    getUsuario() {
+        return this.usuarioInput.value;
+    }
+    getContrasena() {
+        return this.contrasenaInput.value;
+    }
+    mostrarMensaje(mensaje) {
+        const mensajeElement = document.createElement("p");
+        mensajeElement.textContent = mensaje;
+        this.formElement.appendChild(mensajeElement);
+    }
+    limpiarMensaje() {
+        const mensajeElement = this.formElement.querySelector("p");
+        if (mensajeElement) {
+            this.formElement.removeChild(mensajeElement);
         }
+    }
+    limpiarCampos() {
+        this.usuarioInput.value = "";
+        this.contrasenaInput.value = "";
+    }
+    onFormSubmit(callback) {
+        this.formElement.addEventListener("submit", (event) => {
+            event.preventDefault();
+            callback(event);
+        });
     }
 }

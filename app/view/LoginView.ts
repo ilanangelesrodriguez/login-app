@@ -1,32 +1,45 @@
-export default class LoginView {
-    private usernameInput: HTMLInputElement;
-    private passwordInput: HTMLInputElement;
-    private submitButton: HTMLButtonElement;
+export class LoginView {
+    private formElement: HTMLFormElement;
+    private usuarioInput: HTMLInputElement;
+    private contrasenaInput: HTMLInputElement;
 
     constructor() {
-        this.usernameInput = document.getElementById('username') as HTMLInputElement;
-        this.passwordInput = document.getElementById('password') as HTMLInputElement;
-        this.submitButton = document.getElementById('submit') as HTMLButtonElement;
-
+        this.formElement = document.getElementById("login-form") as HTMLFormElement;
+        this.usuarioInput = document.getElementById("usuario") as HTMLInputElement;
+        this.contrasenaInput = document.getElementById("contrasena") as HTMLInputElement;
     }
 
-    render():void {
-        // Puedes personalizar la estructura HTML según tus necesidades
-        const loginForm = document.createElement('form');
-        loginForm.innerHTML = `
-            <h2>Login</h2>
-            <label for="username">Username</label>
-            <input type="text" id="username" />
-            <label for="password">Password</label>
-            <input type="password" id="password" />
-            <button id="submit" type="submit">Login</button>
-        `;
+    getUsuario(): string {
+        return this.usuarioInput.value;
+    }
 
-        // Agregar el formulario al elemento contenedor en tu página HTML
-        const container = document.getElementById('login-container');
-        if (container) {
-            container.appendChild(loginForm);
+    getContrasena(): string {
+        return this.contrasenaInput.value;
+    }
+
+    mostrarMensaje(mensaje: string) {
+        const mensajeElement = document.createElement("p");
+        mensajeElement.textContent = mensaje;
+        this.formElement.appendChild(mensajeElement);
+    }
+
+    limpiarMensaje() {
+        const mensajeElement = this.formElement.querySelector("p");
+        if (mensajeElement) {
+            this.formElement.removeChild(mensajeElement);
         }
+    }
+
+    limpiarCampos() {
+        this.usuarioInput.value = "";
+        this.contrasenaInput.value = "";
+    }
+
+    onFormSubmit(callback: (event: Event) => void) {
+        this.formElement.addEventListener("submit", (event) => {
+            event.preventDefault();
+            callback(event);
+        });
     }
 
 }

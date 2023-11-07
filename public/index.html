@@ -2,12 +2,30 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LoginModel</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="app"></div>
     <div id="login-container"></div>
+
+    <h1>Bienvenido al login</h1>
+    
+    <form action="" id="login-form">
+        <label for="usuario">
+            Usuario:
+            <input type="text" id="usuario" name="usuario" required>
+        </label>
+        <br>
+        <label for="contrasena">
+            Contraseña:
+            <input type="password" id="contrasena" name="contrasena" required>
+        </label>
+        <br>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    <div id="mensaje"></div>
 
     <script type="module" src="js/main.js"></script>
 </body>
