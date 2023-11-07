@@ -1,20 +1,22 @@
 export class LoginView {
-    private formElement: HTMLFormElement;
-    private usuarioInput: HTMLInputElement;
-    private contrasenaInput: HTMLInputElement;
+    formElement: HTMLFormElement;
+    private usernameInput: HTMLInputElement;
+    private passwordInput: HTMLInputElement;
 
     constructor() {
         this.formElement = document.getElementById("login-form") as HTMLFormElement;
-        this.usuarioInput = document.getElementById("usuario") as HTMLInputElement;
-        this.contrasenaInput = document.getElementById("contrasena") as HTMLInputElement;
+        this.usernameInput = document.getElementById("usuario") as HTMLInputElement;
+        this.passwordInput = document.getElementById("contrasena") as HTMLInputElement;
+
+        this.formElement.addEventListener("submit", this.onSubmit.bind(this));
     }
 
     getUsuario(): string {
-        return this.usuarioInput.value;
+        return this.usernameInput.value;
     }
 
     getContrasena(): string {
-        return this.contrasenaInput.value;
+        return this.passwordInput.value;
     }
 
     mostrarMensaje(mensaje: string) {
@@ -31,15 +33,12 @@ export class LoginView {
     }
 
     limpiarCampos() {
-        this.usuarioInput.value = "";
-        this.contrasenaInput.value = "";
+        this.usernameInput.value = "";
+        this.passwordInput.value = "";
     }
 
-    onFormSubmit(callback: (event: Event) => void) {
-        this.formElement.addEventListener("submit", (event) => {
-            event.preventDefault();
-            callback(event);
-        });
+    onSubmit(event: Event) {
+        event.preventDefault();
     }
 
 }

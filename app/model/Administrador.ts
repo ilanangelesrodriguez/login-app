@@ -2,48 +2,56 @@ import {Usuario} from "./Usuario.js";
 
 export class Administrador implements Usuario {
     // @ts-ignore
-    private _apellido: string;
+    private _lastname: string;
     // @ts-ignore
-    private _correo: string;
+    private _email: string;
     // @ts-ignore
-    private _nombre: string;
+    private _name: string;
     // @ts-ignore
-    private _nombreDeUsuario: string;
+    private _username: string;
     // @ts-ignore
     private _password: string;
     // @ts-ignore
-    private _tipo: string = "admin";
+    private _type: string = "admin";
 
-    get apellido(): string {
-        return this._apellido;
+
+    /*constructor(lastname: string, name: string, username: string, password: string) {
+        this._lastname = lastname;
+        this._name = name;
+        this._username = username;
+        this._password = password;
+    }*/
+
+    get lastname(): string {
+        return this._lastname;
     }
 
-    set apellido(value: string) {
-        this._apellido = value;
+    set lastname(value: string) {
+        this._lastname = value;
     }
 
-    get correo(): string {
-        return this._correo;
+    get email(): string {
+        return this._email;
     }
 
-    set correo(value: string) {
-        this._correo = value;
+    set email(value: string) {
+        this._email = value;
     }
 
-    get nombre(): string {
-        return this._nombre;
+    get name(): string {
+        return this._name;
     }
 
-    set nombre(value: string) {
-        this._nombre = value;
+    set name(value: string) {
+        this._name = value;
     }
 
-    get nombreDeUsuario(): string {
-        return this._nombreDeUsuario;
+    get username(): string {
+        return this._username;
     }
 
-    set nombreDeUsuario(value: string) {
-        this._nombreDeUsuario = value;
+    set username(value: string) {
+        this._username = value;
     }
 
     get password(): string {
@@ -54,12 +62,13 @@ export class Administrador implements Usuario {
         this._password = value;
     }
 
-    get tipo(): string {
-        return this._tipo;
+    get type(): string {
+        return this._type;
     }
 
-    set tipo(value: string) {
-        this._tipo = value;
+    set type(value: string) {
+        this._type = value;
     }
+
 
 }

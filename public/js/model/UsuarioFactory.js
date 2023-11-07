@@ -1,6 +1,6 @@
 import { Cliente } from "./Cliente.js";
 import { Administrador } from "./Administrador.js";
-export default class UsuarioFactory {
+export class UsuarioFactory {
     crearUsuario(tipo) {
         if (tipo === "cliente") {
             return new Cliente();

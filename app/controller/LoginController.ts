@@ -1,32 +1,30 @@
 import {LoginView} from "../view/LoginView.js";
-import {LoginModel} from "../model/LoginModel";
+import {LoginModel} from "../model/LoginModel.js";
 
 export class LoginController {
-    private loginModel: LoginModel;
-    private loginView: LoginView;
+    private model: LoginModel;
+    private view: LoginView;
 
-    constructor(loginModel: LoginModel, loginView: LoginView) {
-        this.loginModel = loginModel;
-        this.loginView = loginView;
+    constructor(model: LoginModel, view: LoginView) {
+        this.model = model;
+        this.view = view;
 
-        this.loginView.onFormSubmit(this.iniciarSesion.bind(this));
+        this.view.formElement.addEventListener("submit", this.onSubmit.bind(this));
     }
 
-    iniciarSesion(event: Event) {
+    onSubmit(event: Event) {
         event.preventDefault();
 
-        const usuario = this.loginView.getUsuario();
-        const contrasena = this.loginView.getContrasena();
+        const username = this.view.getUsuario();
+        const password = this.view.getContrasena();
 
-        const usuarioLogeado = this.loginModel.iniciarSesion(usuario, contrasena);
-
-        if (usuarioLogeado) {
-            this.loginView.limpiarMensaje();
-            this.loginView.limpiarCampos();
-            this.loginView.mostrarMensaje(`Bienvenido, ${usuarioLogeado.nombreDeUsuario} (${usuarioLogeado.tipo})`);
+        if (this.model.isCredentialsValid(username, password)) {
+            this.view.limpiarMensaje();
+            this.view.mostrarMensaje("Inicio de sesión exitoso.");
+            this.view.limpiarCampos();
         } else {
-            this.loginView.limpiarMensaje();
-            this.loginView.mostrarMensaje("Credenciales inválidas. No se pudo iniciar sesión.");
+            this.view.limpiarMensaje();
+            this.view.mostrarMensaje("Nombre de usuario o contraseña incorrectos.");
         }
     }
 }

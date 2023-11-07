@@ -1,39 +1,45 @@
 export class Administrador {
     // @ts-ignore
-    _apellido;
+    _lastname;
     // @ts-ignore
-    _correo;
+    _email;
     // @ts-ignore
-    _nombre;
+    _name;
     // @ts-ignore
-    _nombreDeUsuario;
+    _username;
     // @ts-ignore
     _password;
     // @ts-ignore
-    _tipo = "admin";
-    get apellido() {
-        return this._apellido;
+    _type = "admin";
+    /*constructor(lastname: string, name: string, username: string, password: string) {
+        this._lastname = lastname;
+        this._name = name;
+        this._username = username;
+        this._password = password;
+    }*/
+    get lastname() {
+        return this._lastname;
     }
-    set apellido(value) {
-        this._apellido = value;
+    set lastname(value) {
+        this._lastname = value;
     }
-    get correo() {
-        return this._correo;
+    get email() {
+        return this._email;
     }
-    set correo(value) {
-        this._correo = value;
+    set email(value) {
+        this._email = value;
     }
-    get nombre() {
-        return this._nombre;
+    get name() {
+        return this._name;
     }
-    set nombre(value) {
-        this._nombre = value;
+    set name(value) {
+        this._name = value;
     }
-    get nombreDeUsuario() {
-        return this._nombreDeUsuario;
+    get username() {
+        return this._username;
     }
-    set nombreDeUsuario(value) {
-        this._nombreDeUsuario = value;
+    set username(value) {
+        this._username = value;
     }
     get password() {
         return this._password;
@@ -41,10 +47,10 @@ export class Administrador {
     set password(value) {
         this._password = value;
     }
-    get tipo() {
-        return this._tipo;
+    get type() {
+        return this._type;
     }
-    set tipo(value) {
-        this._tipo = value;
+    set type(value) {
+        this._type = value;
     }
 }

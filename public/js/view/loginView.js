@@ -1,17 +1,18 @@
 export class LoginView {
     formElement;
-    usuarioInput;
-    contrasenaInput;
+    usernameInput;
+    passwordInput;
     constructor() {
         this.formElement = document.getElementById("login-form");
-        this.usuarioInput = document.getElementById("usuario");
-        this.contrasenaInput = document.getElementById("contrasena");
+        this.usernameInput = document.getElementById("usuario");
+        this.passwordInput = document.getElementById("contrasena");
+        this.formElement.addEventListener("submit", this.onSubmit.bind(this));
     }
     getUsuario() {
-        return this.usuarioInput.value;
+        return this.usernameInput.value;
     }
     getContrasena() {
-        return this.contrasenaInput.value;
+        return this.passwordInput.value;
     }
     mostrarMensaje(mensaje) {
         const mensajeElement = document.createElement("p");
@@ -25,13 +26,10 @@ export class LoginView {
         }
     }
     limpiarCampos() {
-        this.usuarioInput.value = "";
-        this.contrasenaInput.value = "";
+        this.usernameInput.value = "";
+        this.passwordInput.value = "";
     }
-    onFormSubmit(callback) {
-        this.formElement.addEventListener("submit", (event) => {
-            event.preventDefault();
-            callback(event);
-        });
+    onSubmit(event) {
+        event.preventDefault();
     }
 }
