@@ -11,12 +11,11 @@ export class Cliente {
     _password;
     // @ts-ignore
     _type = "cliente";
-    /*constructor(lastname: string, name: string, username: string, password: string) {
-        this._lastname = lastname;
-        this._name = name;
+    constructor(email, username, password) {
+        this._email = email;
         this._username = username;
         this._password = password;
-    }*/
+    }
     get lastname() {
         return this._lastname;
     }

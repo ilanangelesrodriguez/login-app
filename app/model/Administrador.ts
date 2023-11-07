@@ -1,6 +1,6 @@
-import {Usuario} from "./Usuario.js";
+import {User} from "./User.js";
 
-export class Administrador implements Usuario {
+export class Administrador implements User {
     // @ts-ignore
     private _lastname: string;
     // @ts-ignore
@@ -15,12 +15,11 @@ export class Administrador implements Usuario {
     private _type: string = "admin";
 
 
-    /*constructor(lastname: string, name: string, username: string, password: string) {
-        this._lastname = lastname;
-        this._name = name;
+    constructor(email: string, username: string, password: string) {
+        this._email = email;
         this._username = username;
         this._password = password;
-    }*/
+    }
 
     get lastname(): string {
         return this._lastname;
