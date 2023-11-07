@@ -2,12 +2,13 @@ export class LoginView {
     formElement: HTMLFormElement;
     private usernameInput: HTMLInputElement;
     private passwordInput: HTMLInputElement;
+    messageElement: HTMLElement;
 
     constructor() {
         this.formElement = document.getElementById("login-form") as HTMLFormElement;
         this.usernameInput = document.getElementById("usuario") as HTMLInputElement;
         this.passwordInput = document.getElementById("contrasena") as HTMLInputElement;
-
+        this.messageElement = document.getElementById("mensaje") as HTMLElement;
         this.formElement.addEventListener("submit", this.onSubmit.bind(this));
     }
 
@@ -20,9 +21,10 @@ export class LoginView {
     }
 
     mostrarMensaje(mensaje: string) {
-        const mensajeElement = document.createElement("p");
-        mensajeElement.textContent = mensaje;
-        this.formElement.appendChild(mensajeElement);
+        this.formElement.style.display = "none";
+        // @ts-ignore
+        document.getElementById("main-message").style.display= "flex";
+        this.messageElement.textContent = mensaje;
     }
 
     limpiarMensaje() {

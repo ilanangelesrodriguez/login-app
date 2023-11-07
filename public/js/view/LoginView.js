@@ -2,10 +2,12 @@ export class LoginView {
     formElement;
     usernameInput;
     passwordInput;
+    messageElement;
     constructor() {
         this.formElement = document.getElementById("login-form");
         this.usernameInput = document.getElementById("usuario");
         this.passwordInput = document.getElementById("contrasena");
+        this.messageElement = document.getElementById("mensaje");
         this.formElement.addEventListener("submit", this.onSubmit.bind(this));
     }
     getUsuario() {
@@ -15,9 +17,10 @@ export class LoginView {
         return this.passwordInput.value;
     }
     mostrarMensaje(mensaje) {
-        const mensajeElement = document.createElement("p");
-        mensajeElement.textContent = mensaje;
-        this.formElement.appendChild(mensajeElement);
+        this.formElement.style.display = "none";
+        // @ts-ignore
+        document.getElementById("main-message").style.display = "flex";
+        this.messageElement.textContent = mensaje;
     }
     limpiarMensaje() {
         const mensajeElement = this.formElement.querySelector("p");
