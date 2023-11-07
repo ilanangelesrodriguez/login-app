@@ -1,6 +1,6 @@
-import {Usuario} from "./Usuario.js";
+import {User} from "./User.js";
 
-export class Cliente implements Usuario {
+export class Cliente implements User {
 
     // @ts-ignore
     private _lastname: string;
@@ -16,12 +16,11 @@ export class Cliente implements Usuario {
     private _type: string = "cliente";
 
 
-    /*constructor(lastname: string, name: string, username: string, password: string) {
-        this._lastname = lastname;
-        this._name = name;
+    constructor(email: string, username: string, password: string) {
+        this._email = email;
         this._username = username;
         this._password = password;
-    }*/
+    }
 
     get lastname(): string {
         return this._lastname;
